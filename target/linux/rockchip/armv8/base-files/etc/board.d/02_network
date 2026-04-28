@@ -7,6 +7,9 @@ rockchip_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
+	norco,emb-3531)
+		ucidef_set_interfaces_lan_wan 'eth0' 'eth1'
+		;;
 	cyber,cyber3588-aib|\
 	armsom,sige7|\
 	easepi,ars4|\
@@ -104,6 +107,10 @@ rockchip_setup_macs()
 	local label_mac=""
 
 	case "$board" in
+	norco,emb-3531)
+		wan_mac=$(generate_mac_from_boot_mmc)
+		lan_mac=$(macaddr_add "$wan_mac" 1)
+		;;
 	armsom,sige7|\
 	friendlyarm,nanopc-t6|\
 	friendlyarm,nanopi-r2c|\
