@@ -321,6 +321,16 @@ define Device/xunlong_orangepi-r1-plus
 endef
 TARGET_DEVICES += xunlong_orangepi-r1-plus
 
+define Device/rk3399_emb-3531
+  DEVICE_VENDOR := Rockchip
+  DEVICE_MODEL := EMB-3531
+  SOC := rk3399
+  UBOOT_DEVICE_NAME := emb-3531-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8169 -urngd
+endef
+TARGET_DEVICES += rk3399_emb-3531
+
 define Device/xunlong_orangepi-r1-plus-lts
   DEVICE_VENDOR := Xunlong
   DEVICE_MODEL := Orange Pi R1 Plus LTS
