@@ -157,6 +157,14 @@ define U-Boot/rock-4se-rk3399
     radxa_rock-4se
 endef
 
+define U-Boot/emb-3531-rk3399
+  $(U-Boot/rk3399/Default)
+  UBOOT_CONFIG:=emb-3531-rk3399
+  NAME:=EMB-3531
+  BUILD_DEVICES:= \
+    rk3399_emb-3531
+endef
+
 define U-Boot/rock-pi-4-rk3399
   $(U-Boot/rk3399/Default)
   NAME:=Rock Pi 4
@@ -372,6 +380,7 @@ endef
 
 UBOOT_TARGETS := \
   nanopc-t4-rk3399 \
+  emb-3531-rk3399 \
   nanopi-r4s-rk3399 \
   nanopi-r4se-rk3399 \
   rock-4c-plus-rk3399 \
